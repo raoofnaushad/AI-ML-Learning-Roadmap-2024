@@ -1,42 +1,30 @@
-# AI-ML-Learning-Roadmap-2024
+# Project Overview
 
-Welcome to the AI-ML Learning Roadmap for 2024! This repository is a comprehensive guide designed to help you master AI and ML concepts and build a successful career in the field.
+This repository contains various resources and code examples related to key mathematical concepts and their applications in machine learning and artificial intelligence. Below is a brief overview of the contents:
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Getting Started](#getting-started)
-3. [Roadmap Overview](#roadmap-overview)
-4. [Learning Resources](#learning-resources)
-5. [Tutorials](#tutorials)
-6. [Contributing](#contributing)
-7. [License](#license)
+## Contents
 
-## Introduction
-In this repository, you'll find a curated collection of resources and tutorials aimed at providing a structured learning path for AI and ML. Whether you're a beginner or looking to deepen your knowledge, this roadmap will guide you through the essential topics and skills needed in 2024.
+### Mathematics
+
+1. **Linear Algebra**
+   - [Linear Algebra Overview](mathematics/Linear%20Algebra.md)
+   - Linear algebra is essential for understanding the objects optimized in machine learning. It uses vectors and matrices to organize and represent data, helping machines process information effectively.
+
+2. **Intro to Math**
+   - [Key Mathematical Concepts for AI/ML](mathematics/Intro%20to%20Math.md)
+   - This document covers fundamental mathematical concepts such as Linear Algebra, Calculus, and Probability & Statistics, explaining their importance and applications in AI/ML.
+
+### Code Examples
+
+1. **LeetCode Solutions**
+   - [Two Sum Problem](leetcode/hashMap/TwoSum.py)
+   - This Python script provides a solution to the Two Sum problem using a hash map for efficient lookup.
+
+### Miscellaneous
+
+- **.gitignore**
+  - The repository includes a comprehensive `.gitignore` file to exclude unnecessary files and directories from version control, ensuring a clean and efficient workflow.
 
 ## Getting Started
-To get the most out of this roadmap:
-1. **Clone this repository**: `git clone https://github.com/yourusername/AI-ML-Learning-Roadmap-2024.git`
-2. **Navigate to the directory**: `cd AI-ML-Learning-Roadmap-2024`
-3. **Explore the contents** and start learning!
 
-## Roadmap Overview
-The roadmap is divided into the following sections:
-1. **Fundamentals**: Basics of AI and ML, including key concepts and terminology.
-2. **Mathematics for AI and ML**: Essential mathematical concepts such as linear algebra, calculus, probability, and statistics.
-3. **Programming**: Learning Python and essential libraries (NumPy, Pandas, Matplotlib, etc.).
-4. **Machine Learning**: Core ML algorithms, model training, evaluation, and deployment.
-5. **Deep Learning**: Neural networks, CNNs, RNNs, transformers, and more.
-6. **AI Ethics and Governance**
-
-## Learning Resources
-This section will be populated with links to books, courses, and other educational materials.
-
-## Tutorials
-This section will feature hands-on tutorials to reinforce your learning.
-
-## Contributing
-We welcome contributions from the community! Please feel free to submit pull requests to add resources or improve the existing content.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+To get started with the resources and code examples in this repository, clone the repository to your local machine and explore the various files and directories.
