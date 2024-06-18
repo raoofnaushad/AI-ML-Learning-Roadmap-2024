@@ -1,8 +1,17 @@
 .sidebar {
     width: 20%;
-    background-color: #f4f4f4;
+    background-color: #F4F4F4;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  }
+
+  .sidebar-title {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
   }
   
   .sidebar button {
@@ -10,8 +19,8 @@
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #FFF;
+    border: 1px solid #DDD;
     border-radius: 5px;
     cursor: pointer;
     text-align: left;

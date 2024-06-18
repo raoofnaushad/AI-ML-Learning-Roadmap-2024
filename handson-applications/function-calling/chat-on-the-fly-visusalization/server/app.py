@@ -4,9 +4,13 @@ import os
 load_dotenv()  # Load environment variables from .env file
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS
+
 from src import auth, assistant, dashboard
 
 app = Flask(__name__)
+CORS(app)
+
 
 @app.route('/')
 def default_route():
@@ -24,8 +28,8 @@ def authenticate():
 @app.route('/dashboard', methods=['GET'])
 def get_dashboard():
     try:
-        data = request.json
-        result = dashboard.get_dashboard_data(data)
+        id = request.args.get('id')
+        result = dashboard.get_dashboard_data({'id': id})
         return jsonify(result), 200
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 500

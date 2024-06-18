@@ -32,6 +32,8 @@
 
 .chat-messages {
   flex: 1;
+  display: flex;
+  flex-direction: column; /* Changed from column-reverse to column */
   overflow-y: auto;
   padding-right: 10px;
 }
@@ -44,8 +46,7 @@
 
 .chat-message.user {
   background-color: #e1ffc7;
-  align-self: flex-end; /* Aligned user messages to the right */
-  text-align: right; /* Text aligned to the right for user messages */
+  align-self: flex-start; /* Aligned user messages to the left */
 }
 
 .chat-message.bot {
@@ -76,4 +77,74 @@
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/* Graph Styles */
+.bar-graph {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Increased border-radius for a smoother look */
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Increased shadow for better depth */
+  margin-bottom: 20px;
+}
+
+.bar-graph h3 {
+  margin-bottom: 20px; /* Increased margin for better spacing */
+  font-size: 1.5em; /* Increased font size for better readability */
+  color: #333;
+  text-align: center; /* Centered the title */
+}
+
+.bar-graph ul {
+  list-style: none;
+  padding: 0;
+}
+
+.bar-graph li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0; /* Increased padding for better spacing */
+  border-bottom: 1px solid #eee;
+}
+
+.bar-graph li:last-child {
+  border-bottom: none;
+}
+
+.bar-graph li span {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.pie-graph {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Increased border-radius for a smoother look */
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Increased shadow for better depth */
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column; /* Add this line */
+  align-items: center; /* Add this line */
+}
+
+.pie-graph h3 {
+  margin-bottom: 20px; /* Increased margin for better spacing */
+  font-size: 1.5em; /* Increased font size for better readability */
+  color: #333;
+  text-align: center; /* Centered the title */
+}
+
+/* Placeholder for other graph types */
+.graph-placeholder {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Increased border-radius for a smoother look */
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Increased shadow for better depth */
+  margin-bottom: 20px;
+  text-align: center;
+  color: #999;
+  font-style: italic;
 }
