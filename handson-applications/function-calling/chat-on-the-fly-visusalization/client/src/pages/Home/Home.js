@@ -1,6 +1,5 @@
 // src/pages/Home/Home.js
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import config from '../../config';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie, Cell } from 'recharts';
@@ -9,25 +8,7 @@ import './Home.css';
 function Home() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const [dashboardData, setDashboardData] = useState(null);
   const messagesEndRef = useRef(null);
-
-  useEffect(() => {
-    // Fetch initial dashboard data
-    fetch(`${config.backendUrl}/dashboard?id=123`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.status === 'success') {
-          setDashboardData(data.data);
-        }
-      })
-      .catch((error) => console.error('Error fetching dashboard data:', error));
-  }, []);
 
   useEffect(() => {
     // Scroll to the bottom when messages change
@@ -36,18 +17,38 @@ function Home() {
 
   const handleSend = () => {
     if (input.trim()) {
-      setMessages([...messages, { text: input, sender: 'user' }]);
+      // Add user's message to the chat
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { text: input, sender: 'user' },
+      ]);
+  
+      const data = {
+        user_input: input,
+        client_number: '123', // replace 'default' with the actual default value
+      };
+  
+      fetch(`${config.backendUrl}/chat/chat`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Add bot's message to the chat
+          setMessages((prevMessages) => [
+            ...prevMessages,
+            { text: data.message, sender: 'bot', data: data.visualization ? data : null },
+          ]);
+        })
+        .catch((error) => console.error('Error:', error));
+  
       setInput('');
-      // Simulate a bot response
-      setTimeout(() => {
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { text: 'This is a bot response.', sender: 'bot' },
-        ]);
-      }, 1000);
     }
   };
-
+  
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleSend();
@@ -58,11 +59,11 @@ function Home() {
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF6384', '#36A2EB', '#FFCE56'];
 
     switch (graphData.type) {
-      case 'bar-graph':
+      case 'bar-chart':
         return (
           <div className="bar-graph">
-            <h3>{graphData.title}</h3>
-            <BarChart width={600} height={300} data={graphData.data}>
+            <h2>{graphData.title}</h2> {/* Add title */}
+            <BarChart width={600} height={300} data={graphData.categories.map((category, index) => ({ category, value: graphData.values[index] }))}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="category" />
               <YAxis />
@@ -72,13 +73,13 @@ function Home() {
             </BarChart>
           </div>
         );
-      case 'pie-graph':
+      case 'pie-chart':
         return (
-          <div className="pie-graph">
-            <h3>{graphData.title}</h3>
+          <div className="pie-chart">
+            <h2>{graphData.title}</h2> {/* Add title */}
             <PieChart width={400} height={400}>
               <Pie
-                data={graphData.data}
+                data={graphData.categories.map((category, index) => ({ category, value: graphData.values[index] }))}
                 dataKey="value"
                 nameKey="category"
                 cx="50%"
@@ -86,7 +87,7 @@ function Home() {
                 outerRadius={150}
                 label
               >
-                {graphData.data.map((entry, index) => (
+                {graphData.categories.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
@@ -106,16 +107,12 @@ function Home() {
       <Sidebar />
       <div className="chat-container">
         <div className="chat-messages">
-          {dashboardData && dashboardData.map((graphData, index) => (
-            <div key={index} className="chat-message bot">
-              {renderGraph(graphData)}
-            </div>
-          ))}
           {messages.map((message, index) => (
             <div key={index} className={`chat-message ${message.sender}`}>
               <div className={`chat-bubble ${message.sender}`}>
                 {message.text}
               </div>
+              {message.data && renderGraph(message.data)}
             </div>
           ))}
           <div ref={messagesEndRef} />

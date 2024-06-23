@@ -39,7 +39,7 @@
 }
 
 .chat-message {
-  margin-bottom: 10px;
+  margin-bottom: 20px; /* Increased margin-bottom for better spacing between messages */
   padding: 10px;
   border-radius: 5px;
 }
@@ -53,6 +53,10 @@
   background-color: #f1f1f1;
   align-self: flex-start; /* Aligned bot messages to the left */
   text-align: left; /* Text aligned to the left for bot messages */
+}
+
+.chat-message .graph-container {
+  margin-top: 20px; /* Added margin for spacing between message and graph */
 }
 
 .chat-input {
@@ -87,6 +91,7 @@
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Increased shadow for better depth */
   margin-bottom: 20px;
+  margin-top: 20px; /* Added margin-top for spacing between message and graph */
 }
 
 .bar-graph h3 {
@@ -129,7 +134,7 @@
   align-items: center; /* Add this line */
 }
 
-.pie-graph h3 {
+.pie-graph h2 {
   margin-bottom: 20px; /* Increased margin for better spacing */
   font-size: 1.5em; /* Increased font size for better readability */
   color: #333;
