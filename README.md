@@ -17,8 +17,14 @@ This repository contains various resources and code examples related to key math
 ### Code Examples
 
 1. **LeetCode Solutions**
-   - [Two Sum Problem](leetcode/hashMap/TwoSum.py)
-   - This Python script provides a solution to the Two Sum problem using a hash map for efficient lookup.
+   - [Contains Duplicate](leetcode/ArraysListsSets/contains_duplicate.py)
+   - This Python script checks if an array contains any duplicates using a hash set for efficient lookup.
+
+   - [Maximum Subarray](leetcode/TwoPointers/maxmSubarray.py)
+   - This Python script finds the subarray with the largest sum using a dynamic programming approach.
+
+   - [Product of Array Except Self](leetcode/ArraysListsSets/product_array_except_self.py)
+   - This Python script returns an array where each element is the product of all other elements in the input array, without using division and in O(n) time complexity.
 
 ### Miscellaneous
 
@@ -28,4 +34,3 @@ This repository contains various resources and code examples related to key math
 ## Getting Started
 
 To get started with the resources and code examples in this repository, clone the repository to your local machine and explore the various files and directories.
-
