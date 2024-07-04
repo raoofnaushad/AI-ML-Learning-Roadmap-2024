@@ -1,0 +1,149 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Arial', sans-serif; /* Professional font for banking app */
+  padding: 0 33.33%; /* Add padding on both sides to take 1/3 of the portion of the browser */
+  background-color: #f0f8ff; /* Light blue background for a clean look */
+}
+
+.header {
+  background-color: #0072C6; /* Light blue color similar to RBC */
+  color: #f0f8ff; /* Light blue color for better contrast */
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px; /* Rounded corners for a more modern look */
+  margin-bottom: 10px; /* Space between header and chat container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2em; /* Decreased font size for a less prominent heading */
+  font-family: 'Arial', sans-serif; /* Professional font for banking app */
+  text-shadow: none; /* Remove shadow for a cleaner look */
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 0.8em; /* Reduced font size for a smaller subheading */
+  font-weight: normal;
+}
+
+.sofai-style {
+  font-family: 'Arial', sans-serif; /* Professional font for banking app */
+  color: #005f99; /* Professional blue color */
+  font-weight: bold; /* Bold for emphasis */
+  text-shadow: none; /* Remove shadow for a cleaner look */
+}
+
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #ffffff; /* White background for a clean look */
+  border-radius: 10px; /* Rounded corners for a more modern look */
+  overflow-y: auto; /* Make the chat container scrollable */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  position: relative; /* Ensure child elements are positioned relative to this container */
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding: 0 10px; /* Add padding on both sides */
+}
+
+.chat-message {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.chat-message.user {
+  justify-content: flex-end;
+}
+
+.chat-message.bot {
+  justify-content: flex-start;
+}
+
+.chat-bubble {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #e0e0e0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  font-family: 'Arial', sans-serif; /* Professional font for banking app */
+  position: relative; /* Ensure close button is positioned relative to the chat bubble */
+}
+
+.chat-bubble.user {
+  background-color: #005f99; /* Professional blue */
+  color: white;
+}
+
+.chat-bubble.bot {
+  background-color: #FFD700; /* Yellow */
+  color: black;
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px; /* Rounded corners for a more modern look */
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.chat-input button {
+  padding: 10px 20px;
+  background-color: #005f99; /* Professional blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #1E90FF; /* Lighter shade of Royal Blue */
+}
+
+.visualization-container {
+  width: 100%;
+  max-width: 800px; /* Ensure the visualization container does not exceed a certain width */
+  height: auto; /* Allow height to adjust based on content */
+  background-color: #ffffff; /* White background for a clean look */
+  border: 1px solid #ccc; /* Border to separate from chat messages */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  z-index: 1; /* Ensure it appears above other elements */
+  margin: 10px auto; /* Center the container and add space above and below */
+  padding: 20px; /* Add padding for better spacing */
+  border-radius: 10px; /* Rounded corners for a more modern look */
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff0000; /* Red color for the close button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #cc0000; /* Darker red on hover */
+}

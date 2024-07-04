@@ -1,0 +1,128 @@
+.distribution-graph {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.distribution-graph .navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.nav-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px; /* Reduced padding for smaller size */
+  cursor: pointer;
+  font-size: 0.5em;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #0056b3;
+}
+
+.distribution-graph .category-details {
+  width: 100%;
+  text-align: center;
+}
+
+.distribution-graph h3, .distribution-graph h4, .distribution-graph p {
+  margin: 5px 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.box-plot {
+  position: relative;
+  height: 60px;
+  margin: 20px 0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.box {
+  position: absolute;
+  height: 20px;
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.box .avg {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 20px;
+  width: 1px;
+  background-color: #000000;
+}
+
+.box .avg span {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  white-space: nowrap;
+  font-size: 0.8em;
+}
+
+.statistics-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.whisker {
+  position: relative;
+  height: 1px;
+  background-color: #000000;
+}
+
+.whisker.min {
+  left: 0;
+}
+
+.whisker.max {
+  right: 0;
+}
+
+.whisker span {
+  position: absolute;
+  top: -35px; /* Increased padding for better visualization */
+  white-space: nowrap;
+  font-size: 0.8em;
+}
+
+.client-spending {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
+  width: 2px;
+  background-color: #FF0000;
+}
+
+.client-spending span {
+  position: absolute;
+  top: 35px; /* Increased padding for better visualization */
+  left: -20px;
+  white-space: nowrap;
+  font-size: 0.8em;
+}

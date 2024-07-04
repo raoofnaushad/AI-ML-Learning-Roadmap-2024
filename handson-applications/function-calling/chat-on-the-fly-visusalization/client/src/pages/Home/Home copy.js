@@ -3,10 +3,10 @@ import config from '../../config';
 import Header from '../../components/Headers'; // Corrected import path
 import ChatInput from '../../components/Chat/ChatInput';
 import ChatMessages from '../../components/Chat/ChatMessages';
+import Dashboard from '../../components/Dashboard/Dashboard';
 import BarGraph from '../../components/Visualizations/BarGraph';
 import PieGraph from '../../components/Visualizations/PieGraph';
 import DistributionGraph from '../../components/Visualizations/DistributionGraph';
-
 import './Home.css';
 
 function Home() {
@@ -14,21 +14,11 @@ function Home() {
   const [input, setInput] = useState('');
   const [showDashboard, setShowDashboard] = useState(true);
   const [selectedItem, setSelectedItem] = useState(null);
-  const [budgetInsights, setBudgetInsights] = useState(null); // New state for budget insights
-  const [showMessage, setShowMessage] = useState(false); // State to toggle message visibility
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
-
-  useEffect(() => {
-    // Fetch budget insights data
-    fetch(`${config.backendUrl}/insights/budget_insights`)
-      .then((response) => response.json())
-      .then((data) => setBudgetInsights(data))
-      .catch((error) => console.error('Error fetching budget insights:', error));
-  }, []);
 
   const handleSend = () => {
     if (input.trim()) {
@@ -97,50 +87,27 @@ function Home() {
         <div className="chat-bubble bot">
           {item.type === 'bar-chart' && <BarGraph data={item.values} categories={item.categories} title={item.title} />}
           {item.type === 'pie-chart' && <PieGraph data={item.values} />}
-          {/* {item.type === 'distribution-graph' && <DistributionGraph data={item} />} // Updated to pass the entire item */}
-          {item.type !== 'bar-chart' && item.type !== 'pie-chart' && <div>{item.message}</div>}
+          {item.type === 'distribution' && <DistributionGraph data={item.values} />}
+          {item.type !== 'bar-chart' && item.type !== 'pie-chart' && item.type !== 'distribution' && <div>{item.message}</div>}
           <button className="close-button" onClick={handleCloseVisualization}>X</button>
         </div>
       </div>
     );
   };
-  
+
   return (
     <div className="home">
       <Header />
       <div className="chat-container" style={{ overflow: 'hidden' }}>
         {showDashboard ? (
-          <div className="dashboard">
-            <div className="dashboard-section item-1">
-              {budgetInsights ? (
-                <>
-                  <div className="graph-placeholder">
-                    {console.log('Graph type:', budgetInsights.type)}
-                    {budgetInsights.type === 'distribution-graph' && <DistributionGraph data={budgetInsights} />}
-                    {/* Add other graph types if needed */}
-                    </div>
-                  <p className="catchphrase" onClick={() => setShowMessage(!showMessage)}>{budgetInsights.catchphrase}</p>
-                  {showMessage && (
-                    <p className="message show" style={{ overflow: 'auto', maxHeight: '200px' }}>
-                      {budgetInsights.message}
-                    </p>
-                  )}
-                </>
-              ) : (
-                <p>Loading insights...</p>
-              )}
-            </div>
-            <div className="dashboard-section item-2">
-              <div className="graph-placeholder">[Graph Placeholder]</div>
-              <p className="catchphrase">Catchphrase for Item 2</p>
-              <p className="message">Description 2</p>
-            </div>
-            <div className="dashboard-section item-3">
-              <div className="graph-placeholder">[Graph Placeholder]</div>
-              <p className="catchphrase">Catchphrase for Item 3</p>
-              <p className="message">Description 3</p>
-            </div>
-          </div>
+          <Dashboard 
+            items={[
+              { title: 'Item 1', description: 'Description 1', type: 'bar', data: [1, 2, 3] },
+              { title: 'Item 2', description: 'Description 2', type: 'pie', data: [4, 5, 6] },
+              { title: 'Item 3', description: 'Description 3', type: 'distribution', data: [7, 8, 9] }
+            ]} 
+            handleItemClick={handleItemClick} 
+          />
         ) : (
           <>
             <ChatMessages messages={messages} messagesEndRef={messagesEndRef} />

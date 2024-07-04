@@ -1,0 +1,31 @@
+.chat-message {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .chat-message.user {
+    justify-content: flex-end;
+  }
+  
+  .chat-message.bot {
+    justify-content: flex-start;
+  }
+  
+  .chat-bubble {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    font-family: 'Arial', sans-serif; /* Professional font for banking app */
+  }
+  
+  .chat-bubble.user {
+    background-color: #005f99; /* Professional blue */
+    color: white;
+  }
+  
+  .chat-bubble.bot {
+    background-color: #FFD700; /* Yellow */
+    color: black;
+  }

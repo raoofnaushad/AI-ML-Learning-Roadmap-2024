@@ -1,0 +1,22 @@
+.header {
+    background-color: #0072C6; /* Light blue color similar to RBC */
+    color: #f0f8ff; /* Light blue color for better contrast */
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px; /* Rounded corners for a more modern look */
+    margin-bottom: 10px; /* Space between header and chat container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 2em; /* Decreased font size for a less prominent heading */
+    font-family: 'Arial', sans-serif; /* Professional font for banking app */
+    text-shadow: none; /* Remove shadow for a cleaner look */
+  }
+  
+  .header h2 {
+    margin: 0;
+    font-size: 0.8em; /* Reduced font size for a smaller subheading */
+    font-weight: normal;
+  }
