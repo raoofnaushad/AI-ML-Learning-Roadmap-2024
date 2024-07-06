@@ -34,18 +34,13 @@ Follow up: Can you solve the problem in O(1) extra space complexity? (The output
 
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        output = [1] * len(nums)
-        print(output)
+        res = [1]*(len(nums))
 
-        pref = 1
+        prefix = 1
         for i in range(len(nums)):
-            output[i] = pref
-            pref *= nums[i]
-        
-        print(output)
-        post = 1
-        for i in range(len(nums)-1, -1 , -1):
-            output[i] *= post
-            post *= nums[i]
-
-        return output
+            res[i] = prefix
+            prefix *= nums[i]
+        postfix = 1
+        for i in range(len(nums) - 1 , -1, -1):
+            res[i] *= postfix
+            postfix *=nums[i]
